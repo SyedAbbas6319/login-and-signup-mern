@@ -9,15 +9,24 @@ const cron = require('node-cron');
 const app = express();
 const JWT_SECRET = 'aS3cUr3$eCReTKey12!@#45678wxyz';
 
+const allowedOrigins = ['https://login-and-signup-mern.vercel.app', 'https://login-and-signup-mern-rkk8.vercel.app'];
+
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: 'https://login-and-signup-mern-rkk8.vercel.app/',
+    origin: (origin, callback) => {
+        // Check if the incoming request's origin is in the allowedOrigins array
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true
 }));
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://syedabbas6319:syedabbas6319@cluster0.5vgjrp1.mongodb.net/task2?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://syedabbas6319:syedabbas6319@cluster0.5vgjrp1.mongodb.net/task2?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log('MongoDB connection error:', err));
 
