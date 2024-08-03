@@ -24,7 +24,7 @@ const Register = () => {
     if (name && email && password) {
       try {
         const res = await axios.post(
-          "http://localhost:6969/auth/register",
+          "https://login-and-signup-mern.vercel.app/auth/register",
           user,
           { withCredentials: true }
         );
