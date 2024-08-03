@@ -12,7 +12,7 @@ function App() {
 
   const logoutUser = async () => {
     try {
-      await axios.post("http://localhost:3000/auth/logout", {}, { withCredentials: true });
+      await axios.post("https://login-and-signup-mern-rkk8.vercel.app/auth/logout", {}, { withCredentials: true });
       setLoginUser({});
     } catch (err) {
       console.error("Logout failed", err);
