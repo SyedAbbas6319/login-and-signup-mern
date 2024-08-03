@@ -5,15 +5,15 @@ import { useNavigate } from "react-router-dom";
 const Homepage = ({ user, logout }) => {
   const navigate = useNavigate(); // Hook to programmatically navigate
 
-  // const handleLogout = async () => {
-  //   try {
-  //     await logout(); // Call the logout function passed as a prop
-  //     alert("You have been logged out."); // Show the alert popup
-  //     navigate("/login"); // Redirect to the login page
-  //   } catch (err) {
-  //     console.error("Logout failed", err);
-  //   }
-  // };
+  const handleLogout = async () => {
+    try {
+      await logout(); // Call the logout function passed as a prop
+      alert("You have been logged out."); // Show the alert popup
+      navigate("/login"); // Redirect to the login page
+    } catch (err) {
+      console.error("Logout failed", err);
+    }
+  };
 
   return (
     <>
@@ -68,12 +68,12 @@ const Homepage = ({ user, logout }) => {
                   Contact
                 </a>
               </li>
-              {/* <button
+              <button
                   className="btn btn-outline-light ms-2"
                   onClick={handleLogout}
                 >
                   Logout
-                </button> */}
+                </button>
             </ul>
           </div>
         </div>
