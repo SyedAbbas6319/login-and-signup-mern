@@ -7,7 +7,6 @@ const cron = require('node-cron');
 
 // Initialize Express app
 const app = express();
-const PORT = 6969;
 const JWT_SECRET = 'aS3cUr3$eCReTKey12!@#45678wxyz';
 
 // Middleware
@@ -117,7 +116,5 @@ app.get('/protected/dashboard', authMiddleware, (req, res) => {
     res.status(200).json({ message: 'Welcome to the protected dashboard!' });
 });
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// Export the app (for Vercel)
+module.exports = app;
