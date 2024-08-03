@@ -12,7 +12,7 @@ const JWT_SECRET = 'aS3cUr3$eCReTKey12!@#45678wxyz';
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://login-and-signup-mern-rkk8.vercel.app/',
     credentials: true
 }));
 
