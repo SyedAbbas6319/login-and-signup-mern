@@ -17,7 +17,7 @@ app.use(cors({
 }));
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://syedabbas6319:syedabbas6319@cluster0.5vgjrp1.mongodb.net/task2?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://syedabbas6319:syedabbas6319@cluster0.5vgjrp1.mongodb.net/task2?retryWrites=true&w=majority')
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log('MongoDB connection error:', err));
 
