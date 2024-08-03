@@ -22,7 +22,7 @@ const Login = ({ setLoginUser }) => {
     try {
       console.log("Login payload:", user); // Log the request payload
       const res = await axios.post(
-        "http://localhost:6969/auth/login",
+        "https://login-and-signup-mern.vercel.app/auth/login",
         user,
         { withCredentials: true }
       );
